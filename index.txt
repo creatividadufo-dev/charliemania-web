@@ -13,38 +13,51 @@
 
     <meta
       name="keywords"
-      content="Charliemania, nutrición, fuerza, libertad metabólica, salud metabólica, recomposición corporal, metabolismo, microbiota, hormonas, Cuerpos que Conquistan"
+      content="Charliemania, nutrición, fuerza, libertad metabólica, salud metabólica, recomposición corporal, metabolismo, microbiota, hormonas, Cuerpos que Conquistan, método Charliemania"
     />
 
     <meta name="author" content="Carlos Alberto Males Ponce" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#050505" />
 
     <link rel="canonical" href="https://charliemania.com/" />
     <link rel="icon" type="image/png" href="/charliemania-logo.png" />
 
-    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Charliemania" />
-    <meta property="og:title" content="Charliemania | Nutrición, fuerza y libertad metabólica" />
+    <meta
+      property="og:title"
+      content="Charliemania | Nutrición, fuerza y libertad metabólica"
+    />
     <meta
       property="og:description"
       content="No es comer menos. Es despertar tu metabolismo, sanar desde adentro y recuperar el gobierno de tu cuerpo con ciencia, sabiduría y propósito."
     />
     <meta property="og:url" content="https://charliemania.com/" />
-    <meta property="og:image" content="https://charliemania.com/carlos-charliemania-portrait.png" />
-    <meta property="og:image:alt" content="Carlos, creador de Charliemania" />
+    <meta
+      property="og:image"
+      content="https://charliemania.com/carlos-charliemania-portrait.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Carlos, creador de Charliemania"
+    />
     <meta property="og:locale" content="es_EC" />
 
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Charliemania | Nutrición, fuerza y libertad metabólica" />
+    <meta
+      name="twitter:title"
+      content="Charliemania | Nutrición, fuerza y libertad metabólica"
+    />
     <meta
       name="twitter:description"
       content="Método de nutrición, fuerza y salud integral para recuperar el gobierno del cuerpo."
     />
-    <meta name="twitter:image" content="https://charliemania.com/carlos-charliemania-portrait.png" />
+    <meta
+      name="twitter:image"
+      content="https://charliemania.com/carlos-charliemania-portrait.png"
+    />
 
-    <!-- Datos estructurados de marca -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
