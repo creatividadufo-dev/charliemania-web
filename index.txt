@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Charliemania | Nutrición, fuerza y libertad metabólica</title>
+
+    <meta
+      name="description"
+      content="Charliemania es un método de nutrición, fuerza y salud integral para recuperar el gobierno del cuerpo con ciencia, sabiduría y propósito."
+    />
+
+    <meta
+      name="keywords"
+      content="Charliemania, nutrición, fuerza, libertad metabólica, salud metabólica, recomposición corporal, metabolismo, microbiota, hormonas, Cuerpos que Conquistan"
+    />
+
+    <meta name="author" content="Carlos Alberto Males Ponce" />
+    <meta name="theme-color" content="#050505" />
+
+    <link rel="canonical" href="https://charliemania.com/" />
+    <link rel="icon" type="image/png" href="/charliemania-logo.png" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Charliemania" />
+    <meta property="og:title" content="Charliemania | Nutrición, fuerza y libertad metabólica" />
+    <meta
+      property="og:description"
+      content="No es comer menos. Es despertar tu metabolismo, sanar desde adentro y recuperar el gobierno de tu cuerpo con ciencia, sabiduría y propósito."
+    />
+    <meta property="og:url" content="https://charliemania.com/" />
+    <meta property="og:image" content="https://charliemania.com/carlos-charliemania-portrait.png" />
+    <meta property="og:image:alt" content="Carlos, creador de Charliemania" />
+    <meta property="og:locale" content="es_EC" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Charliemania | Nutrición, fuerza y libertad metabólica" />
+    <meta
+      name="twitter:description"
+      content="Método de nutrición, fuerza y salud integral para recuperar el gobierno del cuerpo."
+    />
+    <meta name="twitter:image" content="https://charliemania.com/carlos-charliemania-portrait.png" />
+
+    <!-- Datos estructurados de marca -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Charliemania",
+        "url": "https://charliemania.com",
+        "logo": "https://charliemania.com/charliemania-logo.png",
+        "founder": {
+          "@type": "Person",
+          "name": "Carlos Alberto Males Ponce"
+        },
+        "sameAs": [
+          "https://www.instagram.com/charliemaniapower/",
+          "https://www.youtube.com/@CHARLIEMANIA2026"
+        ],
+        "description": "Charliemania es un método de nutrición, fuerza y salud integral para recuperar el gobierno del cuerpo con ciencia, sabiduría y propósito."
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Charliemania",
+        "alternateName": "Charliemania - Nutrición, fuerza y libertad metabólica",
+        "url": "https://charliemania.com"
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
