@@ -21,7 +21,7 @@ import {
   Youtube,
 } from "lucide-react";
 
-const SCANNER_URL = "https://charliemania-scanner-v25.vercel.app/";
+const SCANNER_URL = "https://charliemania-scanner-v25.vercel.app/planes";
 const WHATSAPP_URL =
   "https://wa.me/593987767107?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Charliemania%20y%20mi%20PLAN";
 const INSTAGRAM_URL = "https://www.instagram.com/charliemaniapower/";
