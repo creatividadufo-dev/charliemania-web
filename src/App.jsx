@@ -26,6 +26,10 @@ const WHATSAPP_URL =
   "https://wa.me/593987767107?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Charliemania%20y%20mi%20PLAN";
 const INSTAGRAM_URL = "https://www.instagram.com/charliemaniapower/";
 const YOUTUBE_URL = "https://www.youtube.com/@CHARLIEMANIA2026";
+const AMAZON_PRINT_URL = "https://www.amazon.com/dp/B0H2TRHBWM";
+const AMAZON_DIGITAL_URL = "https://www.amazon.com/dp/B0H2TZVPYH";
+const BOOK_ECUADOR_WHATSAPP_URL =
+  "https://wa.me/593987767107?text=Hola%2C%20quiero%20comprar%20el%20libro%20Cuerpos%20que%20Conquistan%20en%20Ecuador";
 
 const LOGO_URL = "/charliemania-logo.png";
 const PORTRAIT_URL = "/carlos-charliemania-portrait.png";
@@ -567,15 +571,48 @@ export default function CharliemaniaWebsite() {
             propósito.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-8 py-4 text-lg font-black transition hover:bg-red-500"
-            >
-              Escribir por WhatsApp
-              <ArrowRight className="h-5 w-5" />
-            </a>
+            <div className="rounded-3xl border border-white/10 bg-black/50 p-5">
+  <p className="text-sm font-black uppercase tracking-[0.22em] text-yellow-400">
+    Compra del libro
+  </p>
+  <p className="mt-3 leading-relaxed text-zinc-300">
+    Amazon: disponible para lectores internacionales en formato digital e impreso.
+    Ecuador: pedidos directos por WhatsApp para coordinar compra, entrega y
+    disponibilidad local.
+  </p>
+</div>
+
+<div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+  <a
+    href={AMAZON_PRINT_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center gap-3 rounded-2xl bg-yellow-400 px-7 py-4 text-lg font-black text-black transition hover:bg-yellow-300"
+  >
+    Libro impreso Amazon
+    <ArrowRight className="h-5 w-5" />
+  </a>
+
+  <a
+    href={AMAZON_DIGITAL_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center gap-3 rounded-2xl border border-yellow-400/40 bg-yellow-400/10 px-7 py-4 text-lg font-black text-yellow-200 transition hover:bg-yellow-400/20"
+  >
+    Kindle / Digital
+    <BookOpen className="h-5 w-5" />
+  </a>
+
+  <a
+    href={BOOK_ECUADOR_WHATSAPP_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center gap-3 rounded-2xl border border-red-500/40 bg-red-500/10 px-7 py-4 text-lg font-black text-red-100 transition hover:bg-red-500/20"
+  >
+    Comprar en Ecuador
+    <MessageCircle className="h-5 w-5" />
+  </a>
+</div>
             <a
               href={SCANNER_URL}
               target="_blank"
