@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -19,6 +19,8 @@ import {
   Sparkles,
   Instagram,
   Youtube,
+  LockKeyhole,
+  LogOut,
 } from "lucide-react";
 
 const SCANNER_URL = "https://charliemania-scanner-v25.vercel.app/";
@@ -35,12 +37,27 @@ const LOGO_URL = "/charliemania-logo.png";
 const PORTRAIT_URL = "/carlos-charliemania-portrait.png";
 const BOOK_COVER_URL = "/cuerpos-que-conquistan-portada.png";
 
+// Primera capa de acceso básica en frontend. Este código puede descubrirse al
+// inspeccionar la web y no reemplaza seguridad real con backend/autenticación.
+// Cambia este valor cuando necesites renovar el código temporal del plan.
+const MOVEMENT_ACCESS_CODE = "CM-MOVIMIENTO-2026";
+
+const movementRoutines = [
+  { title: "Rutina 1", youtubeId: "joqpvpI6A2c" },
+  { title: "Rutina 2", youtubeId: "jmEVEuE4ux0" },
+  { title: "Rutina 3", youtubeId: "kmGnPI5hkTA" },
+  { title: "Rutina 4", youtubeId: "AByuly3YOeI" },
+  { title: "Rutina 5", youtubeId: "OoIFVuL2HqY" },
+  { title: "Rutina 6", youtubeId: "K3CCBL268m0" },
+];
+
 const navItems = [
   "Inicio",
   "Método",
   "Scanner",
   "Libro",
   "Planes",
+  "Movimiento",
   "Sobre mí",
   "Contacto",
 ];
@@ -87,6 +104,29 @@ function idFrom(label) {
 }
 
 export default function CharliemaniaWebsite() {
+  const [movementCode, setMovementCode] = useState("");
+  const [movementAccessGranted, setMovementAccessGranted] = useState(false);
+  const [movementError, setMovementError] = useState("");
+
+  function handleMovementAccess(event) {
+    event.preventDefault();
+
+    if (movementCode.trim().toUpperCase() === MOVEMENT_ACCESS_CODE) {
+      setMovementAccessGranted(true);
+      setMovementError("");
+      return;
+    }
+
+    setMovementAccessGranted(false);
+    setMovementError("El código ingresado no es válido. Revísalo e intenta de nuevo.");
+  }
+
+  function closeMovementAccess() {
+    setMovementAccessGranted(false);
+    setMovementCode("");
+    setMovementError("");
+  }
+
   return (
     <main className="min-h-screen bg-[#050505] text-white overflow-hidden selection:bg-red-600 selection:text-white">
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur-xl">
@@ -501,6 +541,133 @@ export default function CharliemaniaWebsite() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section
+        id="movimiento"
+        className="relative overflow-hidden bg-zinc-950 px-5 py-24 md:px-8 lg:px-12"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(220,38,38,0.2),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(234,179,8,0.12),transparent_30%)]" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mb-10 max-w-3xl">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-950/30 px-4 py-2 text-sm font-black uppercase tracking-[0.18em] text-red-100">
+              <Dumbbell className="h-4 w-4 text-yellow-400" />
+              Movimiento Charliemania
+            </div>
+            <h2 className="text-4xl font-black leading-tight md:text-6xl">
+              Tu cuerpo fue creado para moverse con propósito.
+            </h2>
+          </div>
+
+          {!movementAccessGranted ? (
+            <div className="max-w-2xl rounded-[2rem] border border-red-500/25 bg-black/80 p-6 shadow-[0_0_80px_rgba(220,38,38,0.12)] md:p-10">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-yellow-400/30 bg-yellow-400/10 text-yellow-400">
+                <LockKeyhole className="h-7 w-7" />
+              </div>
+              <h3 className="text-3xl font-black">Acceso a tus rutinas</h3>
+              <p className="mt-4 text-lg leading-relaxed text-zinc-300">
+                Ingresa tu código de plan para acceder a tus rutinas de
+                movimiento, fuerza y activación metabólica.
+              </p>
+
+              <form onSubmit={handleMovementAccess} className="mt-8 space-y-4">
+                <div>
+                  <label
+                    htmlFor="movement-code"
+                    className="mb-2 block text-sm font-black uppercase tracking-[0.2em] text-yellow-400"
+                  >
+                    Código de plan
+                  </label>
+                  <input
+                    id="movement-code"
+                    type="text"
+                    value={movementCode}
+                    onChange={(event) => {
+                      setMovementCode(event.target.value);
+                      setMovementError("");
+                    }}
+                    autoComplete="off"
+                    spellCheck="false"
+                    placeholder="Ej. CM-MOVIMIENTO-2026"
+                    aria-invalid={Boolean(movementError)}
+                    aria-describedby={movementError ? "movement-code-error" : undefined}
+                    className="w-full rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-lg font-bold uppercase text-white outline-none transition placeholder:normal-case placeholder:text-zinc-600 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20"
+                  />
+                </div>
+
+                {movementError && (
+                  <p
+                    id="movement-code-error"
+                    role="alert"
+                    className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 font-semibold text-red-200"
+                  >
+                    {movementError}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-red-600 px-7 py-4 text-lg font-black shadow-[0_0_35px_rgba(220,38,38,0.3)] transition hover:bg-red-500 sm:w-auto"
+                >
+                  Entrar a mis rutinas
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+              </form>
+            </div>
+          ) : (
+            <div>
+              <div className="mb-8 flex flex-col justify-between gap-5 rounded-3xl border border-yellow-400/25 bg-yellow-400/10 p-6 sm:flex-row sm:items-center">
+                <div>
+                  <p className="text-sm font-black uppercase tracking-[0.25em] text-yellow-400">
+                    Acceso habilitado
+                  </p>
+                  <p className="mt-2 max-w-4xl text-lg leading-relaxed text-zinc-200">
+                    Estas rutinas son parte de tu proceso. Hazlas con
+                    responsabilidad, escucha tu cuerpo y sigue las indicaciones
+                    de tu plan.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={closeMovementAccess}
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-black/40 px-5 py-3 font-black transition hover:bg-black/70"
+                >
+                  <LogOut className="h-5 w-5" />
+                  Cerrar acceso
+                </button>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {movementRoutines.map((routine) => (
+                  <article
+                    key={routine.youtubeId}
+                    className="overflow-hidden rounded-3xl border border-white/10 bg-black shadow-xl transition hover:border-red-500/40"
+                  >
+                    <div className="aspect-video bg-zinc-900">
+                      <iframe
+                        className="h-full w-full"
+                        src={`https://www.youtube-nocookie.com/embed/${routine.youtubeId}`}
+                        title={`${routine.title} de Movimiento Charliemania`}
+                        loading="lazy"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="p-5">
+                      <p className="text-xs font-black uppercase tracking-[0.24em] text-red-400">
+                        Movimiento Charliemania
+                      </p>
+                      <h3 className="mt-2 text-2xl font-black">
+                        {routine.title}
+                      </h3>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
