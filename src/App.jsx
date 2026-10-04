@@ -21,6 +21,7 @@ import {
   Youtube,
   LockKeyhole,
   LogOut,
+  Download,
 } from "lucide-react";
 
 const SCANNER_URL = "https://charliemania-scanner-v25.vercel.app/";
@@ -36,6 +37,8 @@ const BOOK_ECUADOR_WHATSAPP_URL =
 const LOGO_URL = "/charliemania-logo.png";
 const PORTRAIT_URL = "/carlos-charliemania-portrait.png";
 const BOOK_COVER_URL = "/cuerpos-que-conquistan-portada.png";
+const STUDY_001_DOWNLOAD_URL =
+  "/descargables/Charliemania_Estudio_Cientifico_001_Apendice.pdf";
 
 // Primera capa de acceso básica en frontend. Este código puede descubrirse al
 // inspeccionar la web y no reemplaza seguridad real con backend/autenticación.
@@ -51,11 +54,25 @@ const movementRoutines = [
   { title: "Rutina 6", youtubeId: "K3CCBL268m0" },
 ];
 
+const scientificStudies = [
+  {
+    number: "Estudio Científico #001",
+    title: "El apéndice no es inútil",
+    subtitle:
+      "Qué sabemos sobre su función inmunológica, su relación con la microbiota y los límites de la evidencia.",
+    summary:
+      "La evidencia actual no respalda describir al apéndice humano como un órgano sin función. Contiene tejido linfoide, participa en la inmunidad intestinal y puede actuar como reservorio de microbiota comensal.",
+    category: "Microbiota · Inmunidad intestinal",
+    downloadUrl: STUDY_001_DOWNLOAD_URL,
+  },
+];
+
 const navItems = [
   "Inicio",
   "Método",
   "Scanner",
   "Libro",
+  "Blog científico",
   "Planes",
   "Movimiento",
   "Sobre mí",
@@ -505,15 +522,94 @@ export default function CharliemaniaWebsite() {
               urgente: tu cuerpo es templo, herramienta de misión y territorio
               de conquista.
             </p>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl border border-yellow-400/40 bg-yellow-400/10 px-7 py-4 text-lg font-black text-yellow-200 transition hover:bg-yellow-400/20"
-            >
-              Quiero información del libro
-              <ArrowRight className="h-5 w-5" />
-            </a>
+            <div className="rounded-3xl border border-white/10 bg-black/50 p-5">
+              <p className="text-sm font-black uppercase tracking-[0.22em] text-yellow-400">
+                Compra del libro
+              </p>
+              <p className="mt-3 leading-relaxed text-zinc-300">
+                Amazon: disponible para lectores internacionales en formato
+                digital e impreso. Ecuador: pedidos directos por WhatsApp para
+                coordinar compra, entrega y disponibilidad local.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <a
+                href={AMAZON_PRINT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-yellow-400 px-7 py-4 text-lg font-black text-black transition hover:bg-yellow-300"
+              >
+                Libro impreso Amazon
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a
+                href={AMAZON_DIGITAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-yellow-400/40 bg-yellow-400/10 px-7 py-4 text-lg font-black text-yellow-200 transition hover:bg-yellow-400/20"
+              >
+                Kindle / Digital
+                <BookOpen className="h-5 w-5" />
+              </a>
+              <a
+                href={BOOK_ECUADOR_WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl border border-red-500/40 bg-red-500/10 px-7 py-4 text-lg font-black text-red-100 transition hover:bg-red-500/20"
+              >
+                Comprar en Ecuador
+                <MessageCircle className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog-cientifico" className="bg-black px-5 py-24 md:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-black uppercase tracking-[0.28em] text-yellow-400">
+            Blog científico
+          </p>
+          <h2 className="mt-3 text-4xl font-black md:text-6xl">
+            Biblioteca Científica Charliemania
+          </h2>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-zinc-300">
+            Estudios para explorar la evidencia y entender sus límites.
+          </p>
+          <div className="mt-10 grid gap-6">
+            {scientificStudies.map((study) => (
+              <article
+                key={study.number}
+                className="rounded-3xl border border-yellow-400/20 bg-zinc-950 p-7 md:p-10"
+              >
+                <p className="text-sm font-black uppercase tracking-[0.2em] text-yellow-400">
+                  {study.number} · {study.category}
+                </p>
+                <h3 className="mt-4 text-3xl font-black md:text-4xl">{study.title}</h3>
+                <p className="mt-3 text-lg text-zinc-200">{study.subtitle}</p>
+                <p className="mt-5 max-w-4xl leading-relaxed text-zinc-400">
+                  {study.summary}
+                </p>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <a
+                    href={study.downloadUrl}
+                    download
+                    className="inline-flex items-center justify-center gap-3 rounded-2xl bg-yellow-400 px-6 py-3 font-black text-black transition hover:bg-yellow-300"
+                  >
+                    Descargar PDF <Download className="h-5 w-5" />
+                  </a>
+                  <a
+                    href={study.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-3 rounded-2xl border border-yellow-400/40 px-6 py-3 font-black text-yellow-200 transition hover:bg-yellow-400/10"
+                  >
+                    Leer estudio <ArrowRight className="h-5 w-5" />
+                  </a>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -738,48 +834,6 @@ export default function CharliemaniaWebsite() {
             propósito.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <div className="rounded-3xl border border-white/10 bg-black/50 p-5">
-  <p className="text-sm font-black uppercase tracking-[0.22em] text-yellow-400">
-    Compra del libro
-  </p>
-  <p className="mt-3 leading-relaxed text-zinc-300">
-    Amazon: disponible para lectores internacionales en formato digital e impreso.
-    Ecuador: pedidos directos por WhatsApp para coordinar compra, entrega y
-    disponibilidad local.
-  </p>
-</div>
-
-<div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-  <a
-    href={AMAZON_PRINT_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center justify-center gap-3 rounded-2xl bg-yellow-400 px-7 py-4 text-lg font-black text-black transition hover:bg-yellow-300"
-  >
-    Libro impreso Amazon
-    <ArrowRight className="h-5 w-5" />
-  </a>
-
-  <a
-    href={AMAZON_DIGITAL_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center justify-center gap-3 rounded-2xl border border-yellow-400/40 bg-yellow-400/10 px-7 py-4 text-lg font-black text-yellow-200 transition hover:bg-yellow-400/20"
-  >
-    Kindle / Digital
-    <BookOpen className="h-5 w-5" />
-  </a>
-
-  <a
-    href={BOOK_ECUADOR_WHATSAPP_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center justify-center gap-3 rounded-2xl border border-red-500/40 bg-red-500/10 px-7 py-4 text-lg font-black text-red-100 transition hover:bg-red-500/20"
-  >
-    Comprar en Ecuador
-    <MessageCircle className="h-5 w-5" />
-  </a>
-</div>
             <a
               href={SCANNER_URL}
               target="_blank"
